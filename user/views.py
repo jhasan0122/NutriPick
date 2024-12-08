@@ -5,6 +5,10 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
+from .models import Patient
+from .forms import PatientProfileUpdateForm,UserUpdateForm
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -51,3 +55,47 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('home')
+
+
+def profile_update_view(request):
+    # Get the user's profile instance
+    patient = get_object_or_404(Patient, user=request.user)
+
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)  # User update form
+        profile_update_form = PatientProfileUpdateForm(request.POST, request.FILES, instance=patient)  # Profile update form
+
+        if user_form.is_valid() and profile_update_form.is_valid():
+            user_form.save()
+            profile_update_form.save()
+            return redirect('profile')
+        else:
+            print(user_form.errors)
+            print(profile_update_form.errors)
+
+    else:
+        user_form = UserUpdateForm(instance=request.user)  # Load existing user instance
+        profile_update_form = PatientProfileUpdateForm(instance=patient)  # Load existing profile instance
+
+    return render(request, 'user/profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_update_form,
+        'patient': patient
+    })
+
+
+from django.shortcuts import render, redirect
+from .models import Patient
+
+
+def set_default_image_view(request, patient_id):
+    # Get the patient's instance
+    patient = Patient.objects.get(id=patient_id)
+
+    # Set the default image if no image exists
+    if not patient.image:
+        patient.image = 'profile_pics/default.jpg'
+        patient.save()
+
+    # Redirect to the profile page or another page
+    return redirect('profile')
