@@ -11,11 +11,11 @@ class Patient(models.Model):
     gender = models.CharField(default='',max_length=8)
     height = models.FloatField(default=0.0)
     weight = models.FloatField(default=0.0)
-    activity_level = models.CharField(default="",max_length=20)
-    bio = models.CharField(default='',max_length=200)
-    image = models.ImageField(default='default.jpg',upload_to='profile_pc')
-    location = models.CharField(default='',max_length=100)
-    phone_number = models.CharField(default='',max_length=15)
+    activity_level = models.CharField(default="",max_length=20,blank=True,null=True)
+    bio = models.CharField(default='',max_length=200,blank=True,null=True)
+    image = models.ImageField(default='default.jpg',upload_to='profile_pictures/')
+    location = models.CharField(default='',max_length=100,blank=True,null=True)
+    phone_number = models.CharField(default='',max_length=15,blank=True,null=True)
 
     def __str__(self):
         return f"{self.user.username}'s Profile"
