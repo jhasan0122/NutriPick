@@ -39,12 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-<<<<<<< HEAD
     "nutri_needs.apps.NutriNeedsConfig",
-=======
     'crispy_forms',
     'crispy_bootstrap4',
->>>>>>> 1ab6c717b8ad6ae241ee210b7f873e0701d95cd6
 ]
 
 MIDDLEWARE = [
