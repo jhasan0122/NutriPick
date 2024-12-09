@@ -23,5 +23,5 @@ class UserUpdateForm(forms.ModelForm):
 class PatientProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Patient
-        fields = ['image','bio','gender','height','weight','location','phone_number','activity_level']
+        fields = ['image','bio','gender','height','weight','location','phone_number','activity_level','dob']
 
