@@ -18,8 +18,9 @@ class Patient(models.Model):
     phone_number = models.CharField(default='',max_length=15,blank=True,null=True)
     dob = models.DateTimeField(default=datetime.now)
     bmi = models.FloatField(default=0.0)
-    bmr = models.FloatField(default=0.0)
     calories_need = models.FloatField(default=0.0)
+    bmr = models.FloatField(default=0.0)
+
 
     def __str__(self):
         return f"{self.user.username}'s Profile"
