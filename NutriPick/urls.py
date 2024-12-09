@@ -25,7 +25,11 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("",home,name='home'),
     path("user/",include('user.urls')),
+    path("nutri_need_home/",include('nutri_needs.urls')),
 ]
 
+<<<<<<< HEAD
+=======
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> 1ab6c717b8ad6ae241ee210b7f873e0701d95cd6

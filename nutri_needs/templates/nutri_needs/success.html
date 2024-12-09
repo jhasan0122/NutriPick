@@ -1,0 +1,40 @@
+{% extends 'user/BASE.html' %}
+
+{% block content %}
+
+<div class="flex items-center justify-center min-h-screen bg-gray-50">
+
+
+    <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-lg">
+
+
+        <div class="border-b pb-4 mb-4">
+            <h1 class="text-2xl font-semibold text-gray-700 text-center">Data Submitted Successfully!</h1>
+        </div>
+
+
+        <div class="space-y-2">
+            <ul class="text-gray-600">
+                <li class="py-1"><span class="font-semibold">Age:</span> {{ customer.age }}</li>
+                <li class="py-1"><span class="font-semibold">Height:</span> {{ customer.height_foot }}' {{ customer.height_inch }}"</li>
+                <li class="py-1"><span class="font-semibold">Weight:</span> {{ customer.weight }} kg</li>
+                <li class="py-1"><span class="font-semibold">Respiratory Problem:</span> {{ customer.respiratory_problem }}</li>
+                <li class="py-1"><span class="font-semibold">Diabetics:</span> {{ customer.diabetics }}</li>
+                <li class="py-1"><span class="font-semibold">High Blood Pressure:</span> {{ customer.high_blood_pressure }}</li>
+                <li class="py-1"><span class="font-semibold">Heart Problem:</span> {{ customer.heart_problem }}</li>
+                <li class="py-1"><span class="font-semibold">Constipation:</span> {{ customer.constipation }}</li>
+                <li class="py-1"><span class="font-semibold">Other Conditions:</span> {{ customer.other_conditions }}</li>
+            </ul>
+        </div>
+
+
+        <div class="mt-6 text-center">
+            <a href="analyze/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition duration-200">
+                Analyze Data
+            </a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
