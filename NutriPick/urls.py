@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path,include
 from user.views import home
 
@@ -26,3 +28,8 @@ urlpatterns = [
     path("nutri_need_home/",include('nutri_needs.urls')),
 ]
 
+<<<<<<< HEAD
+=======
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> 1ab6c717b8ad6ae241ee210b7f873e0701d95cd6
