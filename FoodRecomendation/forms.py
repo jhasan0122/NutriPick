@@ -9,6 +9,13 @@ class UserInputForm(forms.Form):
             ('diabetes', 'Diabetes'),
             ('hypertension', 'Hypertension'),
             ('heart_disease', 'Heart Disease'),
+            ('high_blood_pressure', 'High Blood Pressure'),
+            ('obesity', 'Obesity'),
+            ('fatty_liver', 'Fatty Liver'),
+            ('cholesterol', 'Cholesterol Issues'),
+            ('arthritis', 'Arthritis'),
+            ('thyroid', 'Thyroid Disorders'),
+            ('allergies', 'Allergies'),
             # Add more diseases as needed
         ],
         widget=forms.CheckboxSelectMultiple,
