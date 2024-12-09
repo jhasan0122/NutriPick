@@ -80,7 +80,7 @@ def profile_update_view(request):
     return render(request, 'user/profile.html', {
         'user_form': user_form,
         'profile_form': profile_update_form,
-        'patient': patient
+        'patient': patient,
     })
 
 
